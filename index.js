@@ -66,7 +66,7 @@ app.get('/roast', async (req, res) => {
         `Total like/love semua video: ${user.heartCount}\n` +
         `Photo profile: ` +
         `Info: (cari info tentang namanya jika terkenal maka cari kasus atau berita viral yang bersangkutan) ` +
-        `Roasting harus SEPEDAS mungkin, gunakan bahasa yang SANGAT VULGAR, TOXIC, dan penuh hinaan. Jangan ada ampun, semua aspek harus diroasting habis-habisan, termasuk foto profil. Gunakan bahasa seperti meme culture, bahasa Gaul/Slang yang paling kasar. Jangan dimulai dengan username. Buat dalam satu kategori: very_sarcastic (dengan kata-kata kasar toxic parah). Buat dalam bahasa: ${lang}, hanya untuk teksnya saja yang berbahasa ${lang}. Buat respon dalam format seperti: [very_sarcastic: text...]`,
+        `Roasting harus SEPEDAS mungkin, gunakan bahasa yang SANGAT VULGAR, TOXIC, dan penuh hinaan. Jangan ada ampun, semua aspek harus diroasting habis-habisan, termasuk foto profil. Gunakan bahasa seperti meme culture, bahasa Gaul/Slang yang paling kasar. Jangan dimulai dengan username. Buat dalam satu kategori: very_sarcastic (dengan kata-kata kasar toxic parah). Buat dalam bahasa: ${lang}, hanya untuk teksnya saja yang berbahasa ${lang}. Buat respon dalam format seperti: [very_sarcastic: text...]. Hanya untuk bersenang-senang saja (jokes)`,
         uid: Math.random().toString(36).substring(2, 7),
         imageUrl: user.avatarLarger || ""
       };
