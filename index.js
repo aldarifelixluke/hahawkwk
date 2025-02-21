@@ -63,7 +63,7 @@ app.get('/roast', async (req, res) => {
         `Following: ${user.followingCount || ""}\n` +
         `Posts: ${user.videoCount || ""}\n` +
         `Bio: ${user.signature || ""}\n` +
-        `Heart Count: ${user.heartCount}\n` +
+        `Total like/love semua video: ${user.heartCount}\n` +
         `Photo profile: ` +
         `Info: (cari info tentang namanya jika terkenal maka cari kasus atau berita viral yang bersangkutan) ` +
         `Roasting harus SEPEDAS mungkin, gunakan bahasa yang SANGAT VULGAR, TOXIC, dan penuh hinaan. Jangan ada ampun, semua aspek harus diroasting habis-habisan, termasuk foto profil. Gunakan bahasa seperti meme culture, bahasa Gaul/Slang yang paling kasar. Jangan dimulai dengan username. Buat dalam satu kategori: very_sarcastic (dengan kata-kata kasar toxic parah). Buat dalam bahasa: ${lang}, hanya untuk teksnya saja yang berbahasa ${lang}. Buat respon dalam format seperti: [very_sarcastic: text...]`,
@@ -88,10 +88,12 @@ app.get('/roast', async (req, res) => {
             if (match && match[1]) {
               response.status = true;
               response.message = 'Data retrieved successfully';
+              
               response.result = match[1].trim().replace(/\s+/g, ' ');
               res.status(200).json(response);
             } else {
               response.message = 'Failed to extract Roastig text.';
+              response.resFromKaiz = resFromKaiz;
               console.error('No Roastig text found in response:', text);
               res.status(422).json(response);
             }
@@ -152,7 +154,7 @@ app.get('/toast', async (req, res) => {
         `Following: ${user.followingCount || ""}\n` +
         `Video: ${user.videoCount || ""}\n` +
         `Bio: ${user.signature || ""}\n` +
-        `Heart Count: ${user.heartCount}\n` +
+        `Total like/love semua video: ${user.heartCount}\n` +
         `Photo profile: ` +
         `Info: (cari info tentang namanya jika terkenal maka cari kasus atau berita viral yang bersangkutan) ` +
         `Toast harus SEPOSITIF mungkin, gunakan bahasa yang SANGAT MENDUKUNG dan penuh pujian. Jangan ada kritik, semua aspek harus di-toast dengan positif, termasuk foto profil. Gunakan bahasa seperti meme culture, bahasa Gaul/Slang yang paling positif. Jangan dimulai dengan username. Buat dalam satu kategori: very_supportive (dengan kata-kata positif dan mendukung). Buat dalam bahasa: ${lang}, hanya untuk teksnya saja yang berbahasa ${lang}. Buat respon dalam format seperti: [very_supportive: text...]`,
@@ -180,8 +182,8 @@ app.get('/toast', async (req, res) => {
               response.result = match[1].trim().replace(/\s+/g, ' ');
               res.status(200).json(response);
             } else {
-              response.message = 'Failed to extract Roastig text.';
-              console.error('No Roastig text found in response:', text);
+              response.message = 'Failed to extract Toastig text.';
+              console.error('No Toastig text found in response:', text);
               res.status(422).json(response);
             }
 
