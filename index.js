@@ -55,13 +55,13 @@ app.get('/roast', async (req, res) => {
     const user = await getInstagramProfile(username);
 
     if (user) {
-      const url = "https://kaiz-apis.gleeze.com/api/gemini-vision";
+      const url = "https://kaiz-apis.gleeze.com/api/kaiz-ai";
       const data = {
-        q: `Buat roasting yang SANGAT KASAR dan AGRESIF untuk user @${user.nickname || ""} berdasarkan data berikut:\n` +
+        ask: `Buat roasting yang SANGAT KASAR dan AGRESIF untuk user @${user.nickname || ""} berdasarkan data berikut:\n` +
         `Full name: ${user.username || ""}\n` +
         `Followers: ${user.followerCount || ""}\n` +
         `Following: ${user.followingCount || ""}\n` +
-        `Posts: ${user.videoCount || ""}\n` +
+        `Video: ${user.videoCount || ""}\n` +
         `Bio: ${user.signature || ""}\n` +
         `Total like/love semua video: ${user.heartCount}\n` +
         `Photo profile: ` +
